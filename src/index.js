@@ -6,11 +6,11 @@ const app = express();
 const port = 8888;
 const route = require('./routes');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(        express.static(path.join(__dirname, 'public')));
 app.use(
-    express.urlencoded({
-    extended: true,
-  }),
+             express.urlencoded({
+        extended: true,
+    }),
 );
 app.use(express.json());
 
@@ -19,10 +19,10 @@ app.use(morgan('combined'));
 
 //Template Engine
 app.engine(
-  '.hbs',
-  handlebars({
-    extname: '.hbs',
-  }),
+    '.hbs',
+    handlebars({
+        extname: '.hbs',
+    }),
 );
 
 app.set('view engine', '.hbs');
@@ -31,5 +31,5 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 route(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`Example app listening at http://localhost:${port}`);
 });
